@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitLife - Inicio</title>
+  <!-- Fuente 'Inter' desde Google Fonts para coincidir con Figma -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #111111;
+      line-height: 1.5;
+    }
+
+    /* Contenedor Principal con Margen Centralizado */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ENCABEZADO / NAVBAR */
+    header {
+      width: 100%;
+      background-color: #ffffff;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+    }
+
+    .brand-start {
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      color: #111111;
+      transition: opacity 0.2s;
+    }
+
+    .brand-start:hover {
+      opacity: 0.7;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #111111;
+      font-size: 15px;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+
+    .nav-link:hover {
+      opacity: 0.7;
+    }
+
+    .btn-contact {
+      background-color: #000000;
+      color: #ffffff;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+
+    .btn-contact:hover {
+      background-color: #222222;
+    }
+
+    /* SECCIÓN 1: HERO / PRINCIPAL */
+    .hero {
+      padding: 60px 0 50px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 500px;
+    }
+
+    .hero-title {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    .hero-description {
+      font-size: 17px;
+      color: #555555;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .btn-hero {
+      display: inline-block;
+      background-color: #000000;
+      color: #ffffff;
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.2s, transform 0.2s;
+    }
+
+    .btn-hero:hover {
+      background-color: #222222;
+      transform: translateY(-2px);
+    }
+
+    .hero-image-wrapper {
+      width: 100%;
+      height: 480px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    /* SECCIÓN 2: PILARES Y ARTÍCULOS (REJILLA) */
+    .articles-section {
+      padding: 50px 0 60px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 40px;
+      letter-spacing: -0.5px;
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .article-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .article-image-wrapper {
+      width: 100%;
+      height: 260px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .article-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .article-card:hover .article-image {
+      transform: scale(1.03);
+    }
+
+    .article-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #111111;
+      line-height: 1.3;
+    }
+
+    .article-description {
+      font-size: 14px;
+      color: #888888;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .btn-see-more {
+      align-self: flex-start;
+      background-color: #000000;
+      color: #ffffff;
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+
+    .btn-see-more:hover {
+      background-color: #222222;
+    }
+
+    /* SECCIÓN 3: PROGRAMAS DE ENTRENAMIENTO PARA TI */
+    .programs-section {
+      padding: 60px 0 80px;
+    }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .programs-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .programs-title {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+
+    .programs-description {
+      font-size: 16px;
+      color: #888888;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      max-width: 420px;
+    }
+
+    .programs-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+      max-width: 180px;
+    }
+
+    .btn-primary {
+      background-color: #000000;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      transition: background-color 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background-color: #222222;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background-color: #e8e8e8;
+      color: #111111;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      transition: background-color 0.2s, transform 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background-color: #dadada;
+      transform: translateY(-2px);
+    }
+
+    .programs-image-wrapper {
+      width: 100%;
+      height: 420px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    .programs-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    /* SECCIÓN 4: SUSCRÍBETE PARA RECIBIR NOVEDADES */
+    .subscribe-section {
+      padding: 40px 0 100px;
+    }
+
+    .subscribe-title {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 48px;
+      letter-spacing: -0.5px;
+    }
+
+    .subscribe-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: flex-start;
+    }
+
+    .subscribe-form {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      max-width: 480px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group label {
+      font-size: 16px;
+      font-weight: 600;
+      color: #111111;
+    }
+
+    .form-control {
+      width: 100%;
+      background-color: #e0e0e0;
+      border: none;
+      border-radius: 4px;
+      padding: 14px 16px;
+      font-size: 15px;
+      color: #111111;
+      outline: none;
+      transition: background-color 0.2s;
+    }
+
+    .form-control:focus {
+      background-color: #d4d4d4;
+    }
+
+    textarea.form-control {
+      height: 140px;
+      resize: vertical;
+    }
+
+    .subscribe-image-wrapper {
+      width: 100%;
+      height: 440px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    .subscribe-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    /* PIE DE PÁGINA / FOOTER */
+    footer {
+      background-color: #111111;
+      color: #ffffff;
+      padding: 60px 0 30px;
+      margin-top: 40px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand h3 {
+      font-size: 24px;
+      font-weight: 900;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .footer-brand p {
+      color: #aaaaaa;
+      font-size: 14px;
+      max-width: 320px;
+      line-height: 1.6;
+    }
+
+    .footer-column h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: #aaaaaa;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #222222;
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: #777777;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 992px) {
+      .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .programs-grid, .subscribe-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .subscribe-form {
+        max-width: 100%;
+      }
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 16px 0;
+        gap: 16px;
+      }
+
+      .nav-menu {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .hero-title {
+        font-size: 38px;
+      }
+
+      .hero-image-wrapper, .programs-image-wrapper, .subscribe-image-wrapper {
+        height: 320px;
+      }
+
+      .articles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .programs-title, .subscribe-title {
+        font-size: 28px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Encabezado / Navegación -->
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <a href="#" class="brand-start">Inicio</a>
+        
+        <ul class="nav-menu">
+          <li><a href="#" class="nav-link">Noticias</a></li>
+          <li><a href="#" class="nav-link">Categorías</a></li>
+          <li><a href="#" class="nav-link">Favoritos</a></li>
+          <li><a href="#contacto" class="btn-contact">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Sección 1: Hero (Principal) -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <h1 class="hero-title">FITlife</h1>
+          <p class="hero-description">
+            Tu plataforma de confianza para potenciar tu energía y vitalidad al máximo. Aprende todo sobre salud, nutrición y entrenamiento.
+          </p>
+          <a href="#articulos" class="btn-hero">Ver Artículos</a>
+        </div>
+
+        <div class="hero-image-wrapper">
+          <!-- CORREGIDO: Coincide exactamente con 'Imagen principal.png' -->
+          <img 
+            src="img/Imagen principal.png" 
+            alt="Entrenamiento de fuerza FitLife" 
+            class="hero-image"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 2: Pilares de Salud y Bienestar (Rejilla de Artículos) -->
+    <section class="articles-section" id="articulos">
+      <h2 class="section-title">Pilares de Salud y Bienestar</h2>
+
+      <div class="articles-grid">
+        <!-- Tarjeta 1: HIBRYD -->
+        <article class="article-card">
+          <div class="article-image-wrapper">
+            <img src="img/Imagen Hybrid.png" alt="HIBRYD" class="article-image">
+          </div>
+          <h3 class="article-title">HIBRYD</h3>
+          <p class="article-description">
+            Combina fuerza y resistencia para un físico completo. Mejora tu condición física general y aumenta la energía. Ofrece variedad para romper la rutina diaria y se adapta fácilmente a cualquier nivel de condición.
+          </p>
+          <a href="#" class="btn-see-more">Ver mas</a>
+        </article>
+
+        <!-- Tarjeta 2: Acondicionamiento físico -->
+        <article class="article-card">
+          <div class="article-image-wrapper">
+            <img src="img/Imagen Acondicionamiento Fisico.png" alt="Acondicionamiento físico" class="article-image">
+          </div>
+          <h3 class="article-title">Acondicionamiento físico</h3>
+          <p class="article-description">
+            Mejora tu resistencia y tonifica tu cuerpo con esta rutina de acondicionamiento físico. Quema grasa eficientemente y aumenta tu energía diaria.
+          </p>
+          <a href="#" class="btn-see-more">Ver mas</a>
+        </article>
+
+        <!-- Tarjeta 3: Beneficios del Té verde -->
+        <article class="article-card">
+          <div class="article-image-wrapper">
+            <img src="img/Imagen Beneficios del te verde.png" alt="Beneficios del Té verde" class="article-image">
+          </div>
+          <h3 class="article-title">Beneficios del Té verde en la oxidacion de la grasa</h3>
+          <p class="article-description">
+            Acelera tu metabolismo de forma natural y aprovecha el poder antioxidante del té verde para apoyar tus objetivos de quema de grasa.
+          </p>
+          <a href="#" class="btn-see-more">Ver mas</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Sección 3: Programas de entrenamiento para ti -->
+    <section class="programs-section">
+      <div class="programs-grid">
+        <div class="programs-content">
+          <h2 class="programs-title">Programas de entrenamiento para ti</h2>
+          <p class="programs-description">
+            Descubre rutinas diseñadas para transformar tu estilo de vida, mejorar tu rendimiento y alcanzar tu mejor versión
+          </p>
+
+          <div class="programs-buttons">
+            <a href="#" class="btn-primary">Empieza hoy</a>
+            <a href="#" class="btn-secondary">Elige tu plan</a>
+          </div>
+        </div>
+
+        <div class="programs-image-wrapper">
+          <!-- CORREGIDO: Coincide exactamente con 'Imagen Programas de entrenamiento.png' -->
+          <img 
+            src="img/Imagen Programas de entrenamiento.png" 
+            alt="Programas de entrenamiento personalizado" 
+            class="programs-image"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 4: Suscríbete para recibir novedades -->
+    <section class="subscribe-section" id="contacto">
+      <h2 class="subscribe-title">Suscribete para recibir novedades</h2>
+
+      <div class="subscribe-grid">
+        <!-- Formulario -->
+        <form class="subscribe-form" action="#" method="POST">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Correo Electronico</label>
+            <input type="email" id="email" name="email" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" class="form-control"></textarea>
+          </div>
+        </form>
+
+        <!-- Imagen del formulario -->
+        <div class="subscribe-image-wrapper">
+          <!-- CORREGIDO: Coincide exactamente con 'Imagen suscribete.png' -->
+          <img 
+            src="img/Imagen suscribete.png" 
+            alt="Suscríbete a FitLife" 
+            class="subscribe-image"
+          >
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PIE DE PÁGINA (FOOTER) -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>FITlife</h3>
+          <p>Transformando estilos de vida y potenciando tu mejor versión a través del movimiento, la nutrición y el entrenamiento integral.</p>
+        </div>
+
+        <div class="footer-column">
+          <h4>Navegación</h4>
+          <ul class="footer-links">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#articulos">Artículos</a></li>
+            <li><a href="#">Programas</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Redes Sociales</h4>
+          <ul class="footer-links">
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">YouTube</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">TikTok</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 FitLife. Todos los derechos reservados.</p>
+        <p>Diseñado con pasión para un alto rendimiento.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
